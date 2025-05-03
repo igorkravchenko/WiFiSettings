@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F5BDA0242DC3630100D57C43 /* UIKitNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = F5BDA0232DC3630100D57C43 /* UIKitNavigation */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F5BD9FFA2DC27C9D00D57C43 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5BDA0242DC3630100D57C43 /* UIKitNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = WiFiSettings;
 			packageProductDependencies = (
+				F5BDA0232DC3630100D57C43 /* UIKitNavigation */,
 			);
 			productName = WiFiSettings;
 			productReference = F5BD9FE92DC27C9C00D57C43 /* WiFiSettings.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = F5BD9FE02DC27C9C00D57C43;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F5BDA0222DC3630100D57C43 /* XCRemoteSwiftPackageReference "swift-navigation" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F5BD9FEA2DC27C9C00D57C43 /* Products */;
 			projectDirPath = "";
@@ -558,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F5BDA0222DC3630100D57C43 /* XCRemoteSwiftPackageReference "swift-navigation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-navigation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F5BDA0232DC3630100D57C43 /* UIKitNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5BDA0222DC3630100D57C43 /* XCRemoteSwiftPackageReference "swift-navigation" */;
+			productName = UIKitNavigation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F5BD9FE12DC27C9C00D57C43 /* Project object */;
 }

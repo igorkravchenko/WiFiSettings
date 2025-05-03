@@ -11,7 +11,7 @@ import SwiftUI
 struct WiFiSettingsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+
         }
     }
 }
