@@ -3,15 +3,15 @@ import UIKit
 import UIKitNavigation
 
 @MainActor
-@Observable
+@Perceptible
 class NetworkDetailModel {
     var forgetAlertIsPresented = false
-    let onConfirmForget: () -> Void
+    let onConfirmForget: (() -> Void)?
     let network: Network
     
     init(
         network: Network,
-        onConfirmForget: @escaping () -> Void
+        onConfirmForget: (() -> Void)? = nil
     ) {
         self.onConfirmForget = onConfirmForget
         self.network = network
@@ -22,7 +22,7 @@ class NetworkDetailModel {
     }
     
     func confirmForgetNetworkButtonTapped() {
-        onConfirmForget()
+        onConfirmForget?()
     }
 }
 
@@ -63,7 +63,7 @@ final class NetworkDetailViewController: UIViewController {
                 message: """
                          Your iPhone and other devices iCloud Keychain will no longer join this Wi-Fi \
                          network.
-                         """,//"Forget Wi-Fi Network '\(model.network.name)'?",
+                         """,
                 preferredStyle: .alert
             )
             controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in }))
@@ -75,7 +75,10 @@ final class NetworkDetailViewController: UIViewController {
     }
 }
 
+import SwiftUI
+
 #Preview {
+    UIViewControllerRepresenting {
         UINavigationController(
             rootViewController: NetworkDetailViewController(
                 model: NetworkDetailModel(
@@ -84,4 +87,5 @@ final class NetworkDetailViewController: UIViewController {
                     onConfirmForget: {})
             )
         )
+    }
 }

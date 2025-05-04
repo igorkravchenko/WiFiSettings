@@ -2,7 +2,7 @@ import Observation
 import UIKit
 import UIKitNavigation
 
-@Observable
+@Perceptible
 @MainActor
 class WiFiSettingsModel {
     @CasePathable
@@ -17,10 +17,12 @@ class WiFiSettingsModel {
     var selectedNetworkID: Network.ID?
     
     init(
+        destination: Destination? = nil,
         foundNetworks: [Network],
         isOn: Bool = true,
         selectedNetworkID: Network.ID? = nil
     ) {
+        self.destination = destination
         self.foundNetworks = foundNetworks
         self.isOn = isOn
         self.selectedNetworkID = selectedNetworkID
@@ -252,14 +254,18 @@ extension NSDiffableDataSourceSnapshot<WiFiSettingsViewController.Section, WiFiS
     }
 }
 
+import SwiftUI
+
 #Preview {
-    UINavigationController(
-        rootViewController: WiFiSettingsViewController(model: WiFiSettingsModel(
+    UIViewControllerRepresenting {
+        UINavigationController(
+            rootViewController: WiFiSettingsViewController(model: WiFiSettingsModel(
                 foundNetworks: .mocks,
                 isOn: true, selectedNetworkID: [Network].mocks[0].id
             )
+            )
         )
-    )
+    }
 }
 
 import SwiftUI

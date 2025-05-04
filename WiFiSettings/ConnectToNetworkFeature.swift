@@ -2,7 +2,7 @@ import Observation
 import UIKit
 import UIKitNavigation
 
-@Observable
+@Perceptible
 @MainActor
 class ConnectToNetworkModel: Identifiable {
     var incorrectPasswordAlertIsPresented = false
@@ -96,10 +96,14 @@ final class ConnectToNetworkViewController: UIViewController {
     }
 }
 
+import SwiftUI
+
 #Preview {
-    UINavigationController(
-        rootViewController: ConnectToNetworkViewController(
-            model: ConnectToNetworkModel(network: .init(name: "Blob's WiFi"), onConnect: { _ in })
+    UIViewControllerRepresenting {
+        UINavigationController(
+            rootViewController: ConnectToNetworkViewController(
+                model: ConnectToNetworkModel(network: .init(name: "Blob's WiFi"), onConnect: { _ in })
+            )
         )
-    )
+    }
 }
